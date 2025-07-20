@@ -10,7 +10,7 @@ import { StoreContext } from '../Context/StoreContext.jsx';
 import 'react-toastify/dist/ReactToastify.css';
 
 function BillGenerator() {
-    const { fetchCustomers, customerData,backend_url,token} = useContext(StoreContext);
+    const { fetchCustomers, customerData, backend_url, token } = useContext(StoreContext);
     const [products, setProducts] = useState([]);
     const [items, setItems] = useState([]);
     const [customerName, setCustomerName] = useState('');
@@ -55,10 +55,10 @@ function BillGenerator() {
     const fetchProducts = async () => {
         setIsLoading(true);
         try {
-            const url =backend_url+'/api/inventory/list';
+            const url = backend_url + '/api/inventory/list';
             const headers = {
                 headers: {
-                    "Authorization":token
+                    "Authorization": token
                 }
             };
             const response = await axios.get(url, headers);
@@ -177,7 +177,7 @@ function BillGenerator() {
         setIsLoading(true);
 
         try {
-            const url =backend_url+'/api/bill/create';
+            const url = backend_url + '/api/bill/create';
             const headers = {
                 headers: {
                     "Authorization": localStorage.getItem("token")
@@ -223,25 +223,25 @@ function BillGenerator() {
         message += `*Bill Number:* ${bill.billNumber}\n`;
         message += `*Date:* ${new Date(bill.date).toLocaleDateString()}\n\n`;
         message += `*Items Purchased:*\n`;
-        
+
         bill.items.forEach((item, index) => {
             message += `${index + 1}. ${item.productName} - ${item.quantity} x ₹${item.price} = ₹${item.total}\n`;
         });
-        
+
         message += `\n*Grand Total:* ₹${bill.grandTotal.toFixed(2)}\n`;
         if (bill.deposit > 0) {
             message += `*Deposit Paid:* ₹${bill.deposit.toFixed(2)}\n`;
             message += `*Balance Due:* ₹${(bill.grandTotal - bill.deposit).toFixed(2)}\n`;
         }
-        
+
         message += `\nThank you for your business!`;
-        
+
         // Encode the message for URL
         const encodedMessage = encodeURIComponent(message);
-        
+
         // If customer has a phone number, use it, otherwise just open WhatsApp
         const phoneParam = bill.phoneNumber ? `&phone=${bill.phoneNumber}` : '';
-        
+
         // Open WhatsApp with the message
         window.open(`https://wa.me/?text=${encodedMessage}${phoneParam}`, '_blank');
     };
@@ -351,23 +351,28 @@ function BillGenerator() {
                         <h2 className="text-xl font-semibold text-gray-800 mb-4">Customer Information</h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
-                                <label className="block text-sm font-medium text-gray-700 mb-1">Select Existing Customer</label>
+                                <label className="block text-sm font-medium text-gray-700 mb-1">
+                                    Select Existing Customer
+                                </label>
                                 <select
                                     value={selectedCustomer}
                                     onChange={(e) => setSelectedCustomer(e.target.value)}
                                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
                                 >
                                     <option value="">-- Select Customer --</option>
-                                    {customerData.map(customer => (
-                                        <option key={customer._id} value={customer._id}>
-                                            {customer.customerName} {customer.phoneNumber ? `(${customer.phoneNumber})` : ''}
-                                        </option>
-                                    ))}
+                                    {Array.isArray(customerData) && customerData.length > 0 ? (
+                                        customerData.map((customer) => (
+                                            <option key={customer._id} value={customer._id}>
+                                                {customer.customerName}{" "}
+                                                {customer.phoneNumber ? `(${customer.phoneNumber})` : ""}
+                                            </option>
+                                        ))
+                                    ) : (
+                                        <option disabled>No customers found</option>
+                                    )}
                                 </select>
                             </div>
-                            <div className="text-center flex items-center justify-center text-gray-500">
-                                OR
-                            </div>
+                            <div className="text-center flex items-center justify-center text-gray-500">OR</div>
                             <div>
                                 <label className="block text-sm font-medium text-gray-700 mb-1">Customer Name *</label>
                                 <input
@@ -376,7 +381,7 @@ function BillGenerator() {
                                     value={customerName}
                                     onChange={(e) => {
                                         setCustomerName(e.target.value);
-                                        setSelectedCustomer('');
+                                        setSelectedCustomer("");
                                     }}
                                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
                                     required
@@ -390,13 +395,14 @@ function BillGenerator() {
                                     value={phoneNumber}
                                     onChange={(e) => {
                                         setPhoneNumber(e.target.value);
-                                        setSelectedCustomer('');
+                                        setSelectedCustomer("");
                                     }}
                                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
                                 />
                             </div>
                         </div>
                     </div>
+
 
                     {/* Products Section */}
                     <div className="mb-8">
