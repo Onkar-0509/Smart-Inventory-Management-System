@@ -252,7 +252,7 @@ function BillGenerator() {
         // Header
         doc.setFontSize(28);
         doc.setTextColor(0, 51, 102);
-        doc.text("Anuradha Trading Company", 105, 15, { align: "center" });
+        doc.text("Anuradha Trading", 105, 15, { align: "center" });
         doc.setDrawColor(0, 51, 102);
         doc.setLineWidth(0.5);
         doc.line(20, 20, 190, 20);
