@@ -15,9 +15,13 @@ const StoreContextProvider = (props) => {
   const [bill, setBill] = useState([]);
 
 
-  const backend_url="https://smart-inventory-management-system-backend.vercel.app"
+  // const backend_url="https://smart-inventory-management-system-backend.vercel.app"
 
-  
+
+  const backend_url="http://localhost:3000"
+
+
+
 
   // Fetch customers
   // Fetch customers
@@ -68,9 +72,6 @@ const StoreContextProvider = (props) => {
     }
 
   }
-
-  
-
 
   useEffect(() => {
     fetchCustomers();

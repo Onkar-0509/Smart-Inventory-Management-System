@@ -12,12 +12,8 @@ import supplierRoutes  from "./routes/supplierRoutes.js"
 import "./controllers/dbController.js";
 
 
-
-
 const app = express()
 const port = process.env.PORT || 3000;
-
-
 
 
 app.use(bodyParser.json());
