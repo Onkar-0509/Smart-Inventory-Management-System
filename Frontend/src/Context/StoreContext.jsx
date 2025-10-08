@@ -18,7 +18,7 @@ const StoreContextProvider = (props) => {
   // const backend_url="https://smart-inventory-management-system-backend.vercel.app"
 
 
-  const backend_url="http://localhost:3000"
+  const backend_url="/myapi"
 
 
 
