@@ -3,7 +3,7 @@ version: "3.8"
 services:
   webserver:
     build:
-      context: ./frontend
+      context: .
       dockerfile: dockerfile
     container_name: webserver
     ports:
