@@ -21,9 +21,9 @@ utils/
 .DS_Store
 Thumbs.db
 
-# Environment variables
-.env
-.env.*.local
+# # Environment variables
+# .env
+# .env.*.local
 
 # Editor directories and files
 .vscode/*
