@@ -1,6 +1,6 @@
 import express from 'express';
 import ensureAuthenticate from '../Middleware/auth.js';
-import { CreateBill,GetBill,UpdateBill} from '../controllers/BillController.js';
+import { CreateBill,GetBill,UpdateBill,dashData} from '../controllers/BillController.js';
 
 const router = express.Router();
 
@@ -12,8 +12,7 @@ router.get('/getbill',ensureAuthenticate,GetBill);
 
 router.put('/update/:billId',ensureAuthenticate,UpdateBill)
 
-
-
+router.get('/dashdata',ensureAuthenticate,dashData);
 
 
 export default router;

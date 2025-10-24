@@ -1,6 +1,7 @@
 // src/context/UserContext.js
 import { createContext, useContext, useState, useEffect } from 'react';
 import axios from 'axios';
+import { FiCloudLightning } from 'react-icons/fi';
 
 
 // Create the context
@@ -13,15 +14,26 @@ const StoreContextProvider = (props) => {
 
   const [customerData, setCustomerData] = useState([]);
   const [bill, setBill] = useState([]);
+  const [dashData,setDashData]=useState({
+    totalSales:0,
+    monthlyRevenue:0,
+    totalProducts:0,
+    totalCustomers:0,
+    lowStockCount:0,
+    expiredCount:0
+  });
+
+ 
 
 
   // const backend_url="https://smart-inventory-management-system-backend.vercel.app"
 
-
-  const backend_url="/myapi"
-
+  const backend_url="http://localhost:3000"
 
 
+
+
+  // const backend_url="/myapi"
 
   // Fetch customers
   // Fetch customers
@@ -42,7 +54,7 @@ const StoreContextProvider = (props) => {
     const url = backend_url+'/api/bill/getbill'; // Correct URL
     const headers = {
       headers: {
-        Authorization: localStorage.getItem('token'),
+        Authorization:token,
       },
     };
 
@@ -73,12 +85,19 @@ const StoreContextProvider = (props) => {
 
   }
 
+  const dashboardData=async()=>{
+    try {
+      const response=await axios.get(backend_url+"/api/bill/dashData",{headers:{Authorization: token }});
+      setDashData(response.data)
+    } catch (err) {
+       console.error('Error in totalsales:', err); 
+    }
+  }
+
   useEffect(() => {
     fetchCustomers();
     fetchBill();
   }, [])
-
-
 
 
   const value = {
@@ -91,7 +110,8 @@ const StoreContextProvider = (props) => {
     backend_url,
     token,
     setToken,
-
+    dashboardData,
+    dashData
   }
 
 

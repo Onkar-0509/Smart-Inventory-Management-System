@@ -2,6 +2,8 @@ import { React } from 'react';
 import Card from "./card";
 import Footer from "./footer";
 import { ToastContainer } from 'react-toastify';
+import { useContext,useEffect } from 'react';
+import { StoreContext } from '../Context/StoreContext';
 import { 
   FiTrendingUp, 
   FiDollarSign, 
@@ -16,13 +18,24 @@ import {
   FiBookmark
 } from 'react-icons/fi';
 
+
+
 const Dashboard = () => {
   // Sample data for statistics
+
+  const {dashboardData,dashData}=useContext(StoreContext);
+
+
+  useEffect(() => {
+    dashboardData();
+  }, [])
+  
+  
   const stats = [
-    { title: "Today's Sales", value: "₹12,450", change: "+12%", icon: <FiTrendingUp className="text-green-500" />, color: "bg-green-100" },
-    { title: "Monthly Revenue", value: "₹2,34,500", change: "+8%", icon: <FiDollarSign className="text-blue-500" />, color: "bg-blue-100" },
-    { title: "Total Products", value: "128", change: "+5", icon: <FiPackage className="text-purple-500" />, color: "bg-purple-100" },
-    { title: "Active Suppliers", value: "24", change: "+2", icon: <FiUsers className="text-orange-500" />, color: "bg-orange-100" }
+    { title: "Today's Sales", value: "₹"+dashData.totalSales, change: "+12%", icon: <FiTrendingUp className="text-green-500" />, color: "bg-green-100" },
+    { title: "Monthly Revenue", value: "₹"+dashData.monthlyRevenue, change: "+8%", icon: <FiDollarSign className="text-blue-500" />, color: "bg-blue-100" },
+    { title: "Total Products", value:dashData.totalProducts, change: "+5", icon: <FiPackage className="text-purple-500" />, color: "bg-purple-100" },
+    { title: "Active Customers", value:dashData.totalCustomers, change: "+2", icon: <FiUsers className="text-orange-500" />, color: "bg-orange-100" }
   ];
 
   const recentActivities = [
@@ -170,7 +183,7 @@ const Dashboard = () => {
                 </div>
                 <h3 className="font-medium">Low Stock Items</h3>
               </div>
-              <p className="text-2xl font-bold text-gray-800 mb-1">8</p>
+              <p className="text-2xl font-bold text-gray-800 mb-1">{dashData.lowStockCount}</p>
               <p className="text-sm text-gray-500">Items need restocking</p>
             </div>
             <div className="border rounded-lg p-4">
@@ -188,9 +201,9 @@ const Dashboard = () => {
                 <div className="p-2 rounded-lg bg-green-100 mr-3">
                   <FiShoppingBag className="text-green-600" />
                 </div>
-                <h3 className="font-medium">Total Categories</h3>
+                <h3 className="font-medium">Expired Products</h3>
               </div>
-              <p className="text-2xl font-bold text-gray-800 mb-1">12</p>
+              <p className="text-2xl font-bold text-gray-800 mb-1">{dashData.lowStockCount}</p>
               <p className="text-sm text-gray-500">Product categories</p>
             </div>
           </div>
