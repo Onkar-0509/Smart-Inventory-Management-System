@@ -117,18 +117,16 @@ export const UpdateBill = async (req, res) => {
 }
 
 
-
 export const dashData = async (req, res) => {
   try {
-    const owner = req.user.email; // identify which shop owner
+    const owner = req.user.email; // unique for each shop owner
     const today = new Date();
 
     // ---------------------------
     // 📆 Date ranges
     // ---------------------------
-    const startOfDay = new Date(today.setHours(0, 0, 0, 0));
-    const endOfDay = new Date(today.setHours(23, 59, 59, 999));
-
+    const startOfDay = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 0, 0, 0);
+    const endOfDay = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 23, 59, 59, 999);
     const startOfMonth = new Date(today.getFullYear(), today.getMonth(), 1);
     const endOfMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0, 23, 59, 59, 999);
 
@@ -139,7 +137,6 @@ export const dashData = async (req, res) => {
       owner,
       date: { $gte: startOfDay, $lte: endOfDay },
     });
-
     const totalSales = todayBills.reduce((sum, bill) => sum + bill.grandTotal, 0);
 
     // ---------------------------
@@ -149,34 +146,35 @@ export const dashData = async (req, res) => {
       owner,
       date: { $gte: startOfMonth, $lte: endOfMonth },
     });
-
     const monthlyRevenue = monthlyBills.reduce((sum, bill) => sum + bill.grandTotal, 0);
 
     // ---------------------------
-    // 📦 Total Products
+    // 📦 Product Details
     // ---------------------------
     const totalProducts = await Product.countDocuments({ owner });
 
-    // ---------------------------
-    // 👥 Total Customers
-    // ---------------------------
-    const totalCustomers = await Customer.countDocuments({ owner });
+    // Latest added product (most recent)
+    const latestProduct = await Product.findOne({ owner })
+      .sort({ dateAdded: -1 })
+      .limit(1)
+      .select("name category quantity sellingPrice dateAdded");
 
-    // ---------------------------
-    // ⚠️ Low Stock Items
-    // ---------------------------
+    // Low stock products
     const lowStockItems = await Product.find({
       owner,
       $expr: { $lt: ["$quantity", "$reorderLevel"] },
-    });
+    }).select("name quantity reorderLevel");
 
-    // ---------------------------
-    // ⏳ Expired Products
-    // ---------------------------
+    // Expired products
     const expiredProducts = await Product.find({
       owner,
       expirationDate: { $lt: new Date() },
-    });
+    }).select("name category expirationDate");
+
+    // ---------------------------
+    // 👥 Customers
+    // ---------------------------
+    const totalCustomers = await Customer.countDocuments({ owner });
 
     // ---------------------------
     // 📊 Response
@@ -187,9 +185,11 @@ export const dashData = async (req, res) => {
       totalProducts,
       totalCustomers,
       lowStockCount: lowStockItems.length,
-      expiredCount: expiredProducts.length
+      expiredCount: expiredProducts.length,
+      latestProduct: latestProduct || null,
+      lowStockItems,
+      expiredProducts,
     });
-
   } catch (err) {
     console.error("Error fetching dashboard data:", err);
     res.status(500).json({ message: "Server error" });

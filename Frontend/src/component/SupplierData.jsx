@@ -114,8 +114,6 @@ const SupplierForm = () => {
   };
 
 
-  console.log("suppliers",suppliers)
-
 
 
 

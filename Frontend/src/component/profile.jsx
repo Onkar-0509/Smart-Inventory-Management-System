@@ -28,7 +28,7 @@ const Profile = () => {
           }
         });
 
-        console.log('bac',response.data.user);
+       
         setCurrentUser(response.data.user);
         setProfile({
           businessName: response.data.user.name || '',

@@ -13,44 +13,123 @@ const HomePage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 overflow-hidden">
+    <div className="min-h-screen bg-white overflow-hidden">
+      {/* Spacing Area with Background - Now surrounding the banner */}
+      <div className="bg-gradient-to-br from-blue-50 to-slate-50 border-b border-blue-100">
+        {/* Top Spacing */}
+        <div className="h-20"></div>
+        
+        {/* 🎯 Enhanced Banner Section with side spacing */}
+        <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-600 via-blue-700 to-purple-800 overflow-hidden mx-4 sm:mx-6 lg:mx-8 rounded-3xl mb-20">
+          {/* Background Pattern */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.1)_0%,transparent_50%),radial-gradient(circle_at_80%_80%,rgba(255,255,255,0.05)_0%,transparent_50%)]"></div>
+          
+          {/* Animated Background Elements */}
+          <div className="absolute top-10 left-10 w-72 h-72 bg-white/5 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-10 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-cyan-400/10 rounded-full blur-3xl animate-pulse delay-2000"></div>
 
+          <div className="relative max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              {/* Text Content */}
+              <div className="text-center lg:text-left">
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                  Simplify Your Shop,
+                  <span className="block bg-gradient-to-r from-cyan-300 to-blue-200 bg-clip-text text-transparent mt-2">
+                    Amplify Your Growth
+                  </span>
+                </h1>
+                <p className="text-xl text-blue-100 mb-8 leading-relaxed max-w-2xl">
+                  "Your business deserves tools that work as hard as you do. ShopManager turns complexity into clarity, helping you focus on what matters most - growing your business."
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                  <button
+                    onClick={handleSignup}
+                    className="px-8 py-4 bg-white text-blue-600 rounded-xl font-semibold hover:bg-slate-100 transition-all duration-300 shadow-2xl hover:shadow-3xl hover:scale-105 transform hover:-translate-y-1 active:scale-95 flex items-center justify-center gap-2"
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                    Start Free Trial
+                  </button>
+                  <button className="px-8 py-4 bg-transparent border-2 border-white text-white rounded-xl font-semibold hover:bg-white/10 transition-all duration-300 transform hover:-translate-y-1 active:scale-95 flex items-center justify-center gap-2">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    Watch Demo
+                  </button>
+                </div>
+                <p className="text-blue-200 mt-6 text-sm">
+                  No credit card required • Free 14-day trial • Setup in 5 minutes
+                </p>
+              </div>
 
-
-      {/* Hero Section */}
-      <div className="relative pt-28 pb-16 px-4 sm:px-6 lg:px-8 sm:pt-32 sm:pb-20">
-        {/* Animated Background Elements */}
-        <div className="absolute top-10 right-4 w-48 h-48 bg-blue-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob sm:top-20 sm:right-10 sm:w-72 sm:h-72"></div>
-        <div className="absolute bottom-10 left-4 w-48 h-48 bg-slate-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000 sm:bottom-20 sm:left-10 sm:w-72 sm:h-72"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-purple-100 rounded-full mix-blend-multiply filter blur-xl opacity-50 animate-blob animation-delay-4000 sm:hidden"></div>
-
-        <div className="relative max-w-6xl mx-auto text-center">
-          <h1 className="text-4xl font-bold tracking-tight text-slate-800 mb-4 animate-fade-in-up sm:text-5xl lg:text-6xl sm:mb-6">
-            Simplify Your Shop,
-            <span className="block text-blue-600 mt-2 animate-fade-in-up animation-delay-300">Amplify Your Growth</span>
-          </h1>
-          <p className="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed mb-6 animate-fade-in-up animation-delay-500 sm:text-xl sm:mb-8">
-            "Your business deserves tools that work as hard as you do. ShopManager turns complexity into clarity,
-            helping you focus on what matters most - growing your business."
-          </p>
-          <div className="mt-8 flex flex-col sm:flex-row justify-center gap-3 animate-fade-in-up animation-delay-700 sm:gap-4 sm:mt-12">
-            <button
-              onClick={handleSignup}
-              className="px-6 py-3 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 transform hover:-translate-y-1 active:scale-95 sm:px-8 sm:py-4"
-            >
-              Start Free Trial
-            </button>
-            <button className="px-6 py-3 bg-white text-slate-700 rounded-xl font-semibold hover:bg-slate-50 transition-all duration-300 border border-slate-200 shadow-sm hover:shadow-md transform hover:-translate-y-1 active:scale-95 sm:px-8 sm:py-4">
-              Watch Demo
-            </button>
+              {/* Visual Element */}
+              <div className="relative">
+                <div className="relative bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20 shadow-2xl">
+                  {/* Dashboard Preview */}
+                  <div className="bg-white rounded-2xl p-6 shadow-2xl">
+                    <div className="flex items-center gap-3 mb-6">
+                      <div className="w-3 h-3 bg-red-400 rounded-full"></div>
+                      <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
+                      <div className="w-3 h-3 bg-green-400 rounded-full"></div>
+                      <div className="flex-1 text-center">
+                        <span className="text-sm font-semibold text-slate-700">ShopManager Dashboard</span>
+                      </div>
+                    </div>
+                    
+                    {/* Mock Stats */}
+                    <div className="grid grid-cols-2 gap-4 mb-6">
+                      <div className="bg-blue-50 rounded-xl p-4 text-center">
+                        <div className="text-2xl font-bold text-blue-600">₹12,847</div>
+                        <div className="text-xs text-slate-600">Today's Sales</div>
+                      </div>
+                      <div className="bg-green-50 rounded-xl p-4 text-center">
+                        <div className="text-2xl font-bold text-green-600">42</div>
+                        <div className="text-xs text-slate-600">Products</div>
+                      </div>
+                    </div>
+                    
+                    {/* Mock Chart */}
+                    <div className="bg-slate-50 rounded-xl p-4">
+                      <div className="flex items-end justify-between h-16 gap-1">
+                        {[20, 35, 45, 30, 50, 65, 55].map((height, index) => (
+                          <div
+                            key={index}
+                            className="flex-1 bg-gradient-to-t from-blue-500 to-blue-400 rounded-t transition-all duration-500 hover:opacity-80"
+                            style={{ height: `${height}%` }}
+                          ></div>
+                        ))}
+                      </div>
+                      <div className="text-xs text-slate-500 text-center mt-2">Weekly Performance</div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Floating Elements */}
+                <div className="absolute -top-4 -right-4 w-8 h-8 bg-yellow-400 rounded-full animate-bounce"></div>
+                <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-green-400 rounded-full animate-bounce delay-1000"></div>
+              </div>
+            </div>
           </div>
-        </div>
+
+          {/* Scroll Indicator */}
+          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+            <div className="animate-bounce">
+              <svg className="w-6 h-6 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+              </svg>
+            </div>
+          </div>
+        </section>
       </div>
 
+      {/* Rest of your existing sections remain exactly the same */}
       {/* Quotes Section */}
       <section className="py-12 px-4 sm:px-6 lg:px-8 bg-white sm:py-16">
         <div className="max-w-4xl mx-auto">
-          <div className="relative bg-gradient-to-r from-blue-50 to-slate-50 rounded-2xl p-6 border border-blue-100 shadow-sm hover:shadow-md transition-all duration-500 transform hover:-translate-y-1 sm:p-8 md:p-12">
+          <div className="relative bg-white rounded-2xl p-6 border border-blue-100 shadow-sm hover:shadow-md transition-all duration-500 transform hover:-translate-y-1 sm:p-8 md:p-12">
             <div className="absolute -top-3 -left-3 w-6 h-6 bg-blue-500 rounded-full opacity-20 animate-pulse sm:-top-4 sm:-left-4 sm:w-8 sm:h-8"></div>
             <div className="absolute -bottom-3 -right-3 w-8 h-8 bg-blue-300 rounded-full opacity-30 animate-pulse animation-delay-1000 sm:-bottom-4 sm:-right-4 sm:w-12 sm:h-12"></div>
             
@@ -70,9 +149,9 @@ const HomePage = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-slate-50 sm:py-20">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-slate-50/50 sm:py-20">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12 animate-fade-in-up sm:mb-16">
+          <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-2xl font-bold text-slate-800 mb-3 sm:text-3xl md:text-4xl sm:mb-4">
               Everything You Need in One Place
             </h2>
@@ -124,10 +203,11 @@ const HomePage = () => {
         </div>
       </section>
 
+      {/* Rest of your sections remain the same... */}
       {/* Benefits Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white sm:py-20">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-2xl font-bold text-slate-800 mb-8 animate-fade-in-up sm:text-3xl md:text-4xl sm:mb-12">
+          <h2 className="text-2xl font-bold text-slate-800 mb-8 sm:text-3xl md:text-4xl sm:mb-12">
             Why Shop Managers Love Us
           </h2>
           <div className="grid grid-cols-1 gap-6 text-left sm:gap-8 md:grid-cols-2">
@@ -178,13 +258,13 @@ const HomePage = () => {
       {/* Final CTA */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600 to-blue-700 sm:py-20">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-2xl font-bold text-white mb-4 animate-fade-in-up sm:text-3xl md:text-4xl sm:mb-6">
+          <h2 className="text-2xl font-bold text-white mb-4 sm:text-3xl md:text-4xl sm:mb-6">
             Ready to Transform Your Shop?
           </h2>
-          <p className="text-lg text-blue-100 max-w-2xl mx-auto mb-6 leading-relaxed animate-fade-in-up animation-delay-300 sm:text-xl sm:mb-10">
+          <p className="text-lg text-blue-100 max-w-2xl mx-auto mb-6 leading-relaxed sm:text-xl sm:mb-10">
             "The best time to organize your business was yesterday. The second best time is now."
           </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-3 animate-fade-in-up animation-delay-500 sm:gap-4">
+          <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
             <button
               onClick={handleSignup}
               className="px-6 py-3 bg-white text-blue-600 rounded-xl font-semibold hover:bg-slate-100 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 transform hover:-translate-y-1 active:scale-95 sm:px-8 sm:py-4"
@@ -195,13 +275,13 @@ const HomePage = () => {
               Book a Demo
             </button>
           </div>
-          <p className="text-blue-200 mt-4 text-xs animate-fade-in-up animation-delay-700 sm:mt-6 sm:text-sm">
+          <p className="text-blue-200 mt-4 text-xs sm:mt-6 sm:text-sm">
             No credit card required • Free 14-day trial • Setup in minutes
           </p>
         </div>
       </section>
 
-      {/* Enhanced Footer */}
+      {/* Footer */}
       <footer className="bg-gradient-to-br from-slate-800 to-slate-900 py-12 px-4 sm:px-6 lg:px-8 border-t border-slate-700 sm:py-16">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col items-center gap-6 text-center lg:flex-row lg:justify-between lg:items-center lg:gap-8 lg:text-left">
@@ -239,16 +319,8 @@ const HomePage = () => {
               </p>
             </div>
           </div>
-          
-          {/* Bottom decorative line */}
-          <div className="mt-6 pt-6 border-t border-slate-700 sm:mt-8 sm:pt-8">
-            <div className="flex justify-center">
-              <div className="w-16 h-0.5 bg-gradient-to-r from-blue-500 to-transparent rounded-full sm:w-24 sm:h-1"></div>
-            </div>
-          </div>
         </div>
       </footer>
-
     </div>
   );
 };

@@ -39,7 +39,6 @@ const Login = () => {
       const { success, message, jwttoken, name } = response.data;
   
       if (success) {
-        handleSuccess(message || "Login successful!");
         localStorage.setItem("token", jwttoken);
         setToken(localStorage.getItem("token"));
         localStorage.setItem("loggedInUser", name);
