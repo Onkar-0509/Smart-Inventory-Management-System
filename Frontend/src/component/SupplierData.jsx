@@ -10,6 +10,7 @@ const SupplierForm = () => {
   const [filteredSuppliers, setFilteredSuppliers] = useState([]);
   const [loading, setLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
+  const [selectedImage, setSelectedImage] = useState(null);
   const [formData, setFormData] = useState({
     supplierName: '',
     date: '',
@@ -17,8 +18,6 @@ const SupplierForm = () => {
     depositAmount: '',
     image: null
   });
-
- 
 
   // Fetch all suppliers
   const fetchSuppliers = async () => {
@@ -113,12 +112,44 @@ const SupplierForm = () => {
     }
   };
 
+  // Open image modal
+  const openImageModal = (imageUrl, supplierName) => {
+    setSelectedImage({ imageUrl, supplierName });
+  };
 
-
-
+  // Close image modal
+  const closeImageModal = () => {
+    setSelectedImage(null);
+  };
 
   return (
     <div className="p-6 max-w-6xl mx-auto">
+      {/* Simple Image Modal */}
+      {selectedImage && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4 cursor-pointer"
+          onClick={closeImageModal}
+        >
+          <div className="relative max-w-3xl max-h-full">
+            <img
+              src={selectedImage.imageUrl}
+              alt={selectedImage.supplierName}
+              className="max-w-full max-h-full rounded-lg shadow-2xl"
+            />
+            <div className="absolute top-4 right-4">
+              <button
+                onClick={closeImageModal}
+                className="bg-black bg-opacity-50 text-white rounded-full p-2 hover:bg-opacity-75 transition-all"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Add Supplier Form */}
       <div className="bg-white rounded-lg shadow-md p-6 mb-6">
         <h2 className="text-xl font-semibold mb-4">Add New Supplier</h2>
@@ -261,24 +292,18 @@ const SupplierForm = () => {
                   <tr key={supplier._id} className="hover:bg-gray-50">
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="flex items-center">
-                        <div className="flex-shrink-0 h-10 w-10 relative group">
+                        <div className="flex-shrink-0 h-10 w-10">
                           {supplier.imageUrl ? (
-                            <>
+                            <button
+                              onClick={() => openImageModal(supplier.imageUrl, supplier.supplierName)}
+                              className="focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-full"
+                            >
                               <img
-                                className="h-10 w-10 rounded-full object-cover"
+                                className="h-10 w-10 rounded-full object-cover cursor-pointer hover:opacity-80 transition-opacity"
                                 src={`${supplier.imageUrl}`}
                                 alt={supplier.supplierName}
                               />
-                              <div className="hidden group-hover:block absolute z-10 top-full left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
-                                <div className="p-2">
-                                  <img
-                                    className="w-full h-auto rounded"
-                                    src={`${supplier.imageUrl}`}
-                                    alt={supplier.supplierName}
-                                  />
-                                </div>
-                              </div>
-                            </>
+                            </button>
                           ) : (
                             <div className="h-10 w-10 rounded-full bg-gray-200 flex items-center justify-center">
                               <span className="text-gray-500 text-xs">No Image</span>
