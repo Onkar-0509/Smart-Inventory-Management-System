@@ -71,8 +71,8 @@ const Dashboard = () => {
       id: 1,
       type: "sale",
       title: "New Product added",
-      details: "Product " + dashData.latestProduct.name || "No products",
-      time: "Quantity " + dashData.latestProduct.quantity || "0",
+      details: "Product " + dashData.latestProduct?.name || "No products",
+      time: "Quantity " + dashData.latestProduct?.quantity || "0",
       icon: <FiShoppingCart className="text-blue-600" />,
       color: "bg-blue-100"
     },
