@@ -13,279 +13,242 @@ const HomePage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 overflow-hidden">
-      {/* Header */}
-      <header className="fixed top-0 left-0 right-0 bg-gray-900/80 backdrop-blur-md shadow-lg py-3 z-10 border-b border-purple-900/30">
-        <div className="container mx-auto px-4 flex justify-between items-center">
-          <div className="flex gap-2 justify-center items-center">
-            <img 
-              className="rounded-full animate-spin-slow" 
-              src="logo.gif" 
-              width={30} 
-              height={30} 
-              alt="logo" 
-            />
-            <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 text-2xl tracking-widest hover:from-pink-500 hover:to-purple-500 transition-all duration-500">
-              ShopMananager
-            </span>
-          </div>
-          <div className="flex gap-4">
-            <button
-              onClick={handleLogin}
-              className="relative px-6 py-2 font-medium text-white group"
-            >
-              <span className="absolute inset-0 w-full h-full transition-all duration-300 ease-out transform translate-x-0 -skew-x-12 bg-purple-700 group-hover:bg-purple-600 group-hover:skew-x-12"></span>
-              <span className="absolute inset-0 w-full h-full transition-all duration-300 ease-out transform skew-x-12 bg-purple-900 group-hover:bg-purple-700 group-hover:-skew-x-12"></span>
-              <span className="absolute bottom-0 left-0 hidden w-10 h-20 transition-all duration-100 ease-out transform -translate-x-8 translate-y-10 bg-pink-600 -rotate-12 group-hover:block"></span>
-              <span className="absolute bottom-0 right-0 hidden w-10 h-20 transition-all duration-100 ease-out transform translate-x-10 translate-y-8 bg-purple-400 -rotate-12 group-hover:block"></span>
-              <span className="relative">Log in</span>
-            </button>
-            <button
-              onClick={handleSignup}
-              className="relative px-6 py-2 font-medium text-white group"
-            >
-              <span className="absolute inset-0 w-full h-full transition-all duration-300 ease-out transform translate-x-0 skew-x-12 bg-pink-600 group-hover:bg-pink-500 group-hover:-skew-x-12"></span>
-              <span className="absolute inset-0 w-full h-full transition-all duration-300 ease-out transform -skew-x-12 bg-pink-800 group-hover:bg-pink-600 group-hover:skew-x-12"></span>
-              <span className="absolute bottom-0 left-0 hidden w-10 h-20 transition-all duration-100 ease-out transform -translate-x-8 translate-y-10 bg-purple-600 -rotate-12 group-hover:block"></span>
-              <span className="absolute bottom-0 right-0 hidden w-10 h-20 transition-all duration-100 ease-out transform translate-x-10 translate-y-8 bg-pink-400 -rotate-12 group-hover:block"></span>
-              <span className="relative">Sign Up</span>
-            </button>
-          </div>
-        </div>
-      </header>
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 overflow-hidden">
+
+
 
       {/* Hero Section */}
-      <div className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-900 to-gray-800 overflow-hidden">
-        <div className="absolute -top-32 -right-32 w-96 h-96 bg-purple-600 rounded-full mix-blend-overlay filter blur-3xl opacity-20 animate-blob"></div>
-        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-pink-600 rounded-full mix-blend-overlay filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
-        
-        <div className="relative max-w-7xl mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-red-500">
-            Revolutionize Your Inventory
+      <div className="relative pt-28 pb-16 px-4 sm:px-6 lg:px-8 sm:pt-32 sm:pb-20">
+        {/* Animated Background Elements */}
+        <div className="absolute top-10 right-4 w-48 h-48 bg-blue-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob sm:top-20 sm:right-10 sm:w-72 sm:h-72"></div>
+        <div className="absolute bottom-10 left-4 w-48 h-48 bg-slate-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000 sm:bottom-20 sm:left-10 sm:w-72 sm:h-72"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-purple-100 rounded-full mix-blend-multiply filter blur-xl opacity-50 animate-blob animation-delay-4000 sm:hidden"></div>
+
+        <div className="relative max-w-6xl mx-auto text-center">
+          <h1 className="text-4xl font-bold tracking-tight text-slate-800 mb-4 animate-fade-in-up sm:text-5xl lg:text-6xl sm:mb-6">
+            Simplify Your Shop,
+            <span className="block text-blue-600 mt-2 animate-fade-in-up animation-delay-300">Amplify Your Growth</span>
           </h1>
-          <h2 className="mt-6 text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
-            The most <span className="font-bold text-purple-300">powerful</span>, yet <span className="font-bold text-pink-300">simple</span> inventory management system you'll ever use
-          </h2>
-          <div className="mt-10 relative max-w-md mx-auto">
-            <input
-              type="text"
-              placeholder="Discover inventory features..."
-              className="w-full px-6 py-4 rounded-full bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500 text-white placeholder-gray-400"
-            />
-            <button className="absolute right-2 top-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-2 rounded-full hover:from-purple-700 hover:to-pink-700 transition-all duration-300 shadow-lg">
-              <i className="fas fa-search"></i> Search
+          <p className="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed mb-6 animate-fade-in-up animation-delay-500 sm:text-xl sm:mb-8">
+            "Your business deserves tools that work as hard as you do. ShopManager turns complexity into clarity,
+            helping you focus on what matters most - growing your business."
+          </p>
+          <div className="mt-8 flex flex-col sm:flex-row justify-center gap-3 animate-fade-in-up animation-delay-700 sm:gap-4 sm:mt-12">
+            <button
+              onClick={handleSignup}
+              className="px-6 py-3 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 transform hover:-translate-y-1 active:scale-95 sm:px-8 sm:py-4"
+            >
+              Start Free Trial
             </button>
-          </div>
-          <div className="mt-8 flex justify-center gap-4">
-            <button className="px-8 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full font-medium hover:from-purple-700 hover:to-pink-700 transition-all duration-300 shadow-lg hover:shadow-xl">
-              Get Started Free
-            </button>
-            <button className="px-8 py-3 bg-gray-800 text-white rounded-full font-medium hover:bg-gray-700 transition-all duration-300 border border-gray-700 hover:border-gray-600">
+            <button className="px-6 py-3 bg-white text-slate-700 rounded-xl font-semibold hover:bg-slate-50 transition-all duration-300 border border-slate-200 shadow-sm hover:shadow-md transform hover:-translate-y-1 active:scale-95 sm:px-8 sm:py-4">
               Watch Demo
             </button>
           </div>
         </div>
       </div>
 
-      {/* Features Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gray-900/50">
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-64 -left-64 w-96 h-96 bg-purple-600 rounded-full mix-blend-overlay filter blur-3xl opacity-10 animate-blob animation-delay-2000"></div>
+      {/* Quotes Section */}
+      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-white sm:py-16">
+        <div className="max-w-4xl mx-auto">
+          <div className="relative bg-gradient-to-r from-blue-50 to-slate-50 rounded-2xl p-6 border border-blue-100 shadow-sm hover:shadow-md transition-all duration-500 transform hover:-translate-y-1 sm:p-8 md:p-12">
+            <div className="absolute -top-3 -left-3 w-6 h-6 bg-blue-500 rounded-full opacity-20 animate-pulse sm:-top-4 sm:-left-4 sm:w-8 sm:h-8"></div>
+            <div className="absolute -bottom-3 -right-3 w-8 h-8 bg-blue-300 rounded-full opacity-30 animate-pulse animation-delay-1000 sm:-bottom-4 sm:-right-4 sm:w-12 sm:h-12"></div>
+            
+            <div className="relative">
+              <div className="text-blue-500 text-4xl absolute -top-6 -left-2 opacity-20 sm:text-6xl sm:-top-8 sm:-left-4">"</div>
+              <blockquote className="text-lg text-slate-700 italic leading-relaxed relative z-10 sm:text-xl md:text-2xl">
+                "ShopManager didn't just organize my inventory; it organized my entire business mindset.
+                Now I spend less time counting stock and more time counting profits."
+              </blockquote>
+              <div className="text-slate-500 mt-4 flex items-center gap-2 sm:mt-6 sm:gap-3">
+                <div className="w-1.5 h-6 bg-blue-500 rounded-full sm:w-2 sm:h-8"></div>
+                <p className="font-medium text-sm sm:text-base">- Sarah Chen, Owner of Urban Grocers</p>
+              </div>
+            </div>
+          </div>
         </div>
-        
-        <div className="relative max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500">
-              Powerful Features
+      </section>
+
+      {/* Features Section */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-slate-50 sm:py-20">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12 animate-fade-in-up sm:mb-16">
+            <h2 className="text-2xl font-bold text-slate-800 mb-3 sm:text-3xl md:text-4xl sm:mb-4">
+              Everything You Need in One Place
             </h2>
-            <p className="mt-4 text-xl text-gray-300 max-w-2xl mx-auto">
-              Everything you need to manage your inventory efficiently
+            <p className="text-base text-slate-600 max-w-2xl mx-auto sm:text-lg md:text-xl">
+              From inventory tracking to customer management, we've got you covered
             </p>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+          <div className="grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-3">
             {/* Feature 1 */}
-            <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700 hover:border-purple-500 transition-all duration-300 hover:-translate-y-2 shadow-lg hover:shadow-purple-500/20">
-              <div className="w-14 h-14 bg-purple-900/30 rounded-lg flex items-center justify-center mb-4 border border-purple-500/30">
-                <svg className="w-8 h-8 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-lg transition-all duration-500 border border-slate-100 transform hover:-translate-y-2 group sm:p-8">
+              <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 sm:w-16 sm:h-16 sm:mb-6">
+                <svg className="w-6 h-6 text-blue-600 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">Real-time Tracking</h3>
-              <p className="text-gray-300">Monitor your inventory levels in real-time with our intuitive dashboard.</p>
+              <h3 className="text-lg font-semibold text-slate-800 mb-2 sm:text-xl sm:mb-3">Smart Inventory</h3>
+              <p className="text-slate-600 leading-relaxed text-sm sm:text-base">
+                Track stock levels, set reorder points, and never run out of popular items again.
+              </p>
             </div>
-            
+
             {/* Feature 2 */}
-            <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700 hover:border-pink-500 transition-all duration-300 hover:-translate-y-2 shadow-lg hover:shadow-pink-500/20">
-              <div className="w-14 h-14 bg-pink-900/30 rounded-lg flex items-center justify-center mb-4 border border-pink-500/30">
-                <svg className="w-8 h-8 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-lg transition-all duration-500 border border-slate-100 transform hover:-translate-y-2 group sm:p-8">
+              <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 sm:w-16 sm:h-16 sm:mb-6">
+                <svg className="w-6 h-6 text-green-600 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              </div>
+              <h3 className="text-lg font-semibold text-slate-800 mb-2 sm:text-xl sm:mb-3">Quick Billing</h3>
+              <p className="text-slate-600 leading-relaxed text-sm sm:text-base">
+                Generate professional invoices in seconds and keep your cash flow moving.
+              </p>
+            </div>
+
+            {/* Feature 3 */}
+            <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-lg transition-all duration-500 border border-slate-100 transform hover:-translate-y-2 group sm:p-8">
+              <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 sm:w-16 sm:h-16 sm:mb-6">
+                <svg className="w-6 h-6 text-purple-600 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">Smart Analytics</h3>
-              <p className="text-gray-300">Get actionable insights with our advanced reporting and analytics tools.</p>
-            </div>
-            
-            {/* Feature 3 */}
-            <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700 hover:border-purple-500 transition-all duration-300 hover:-translate-y-2 shadow-lg hover:shadow-purple-500/20">
-              <div className="w-14 h-14 bg-purple-900/30 rounded-lg flex items-center justify-center mb-4 border border-purple-500/30">
-                <svg className="w-8 h-8 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-white mb-2">Automated Alerts</h3>
-              <p className="text-gray-300">Never run out of stock with our smart low-stock notifications.</p>
+              <h3 className="text-lg font-semibold text-slate-800 mb-2 sm:text-xl sm:mb-3">Clear Insights</h3>
+              <p className="text-slate-600 leading-relaxed text-sm sm:text-base">
+                Understand your business better with simple, actionable reports and analytics.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Design Cards Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gray-900">
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -bottom-64 -right-64 w-96 h-96 bg-pink-600 rounded-full mix-blend-overlay filter blur-3xl opacity-10 animate-blob animation-delay-6000"></div>
+      {/* Benefits Section */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white sm:py-20">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-2xl font-bold text-slate-800 mb-8 animate-fade-in-up sm:text-3xl md:text-4xl sm:mb-12">
+            Why Shop Managers Love Us
+          </h2>
+          <div className="grid grid-cols-1 gap-6 text-left sm:gap-8 md:grid-cols-2">
+            <div className="space-y-4 sm:space-y-6">
+              <div className="flex items-start gap-3 group hover:transform hover:-translate-x-1 transition-transform duration-300 sm:gap-4 sm:hover:-translate-x-2">
+                <div className="w-6 h-6 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-1 group-hover:scale-110 transition-transform duration-300 sm:w-8 sm:h-8">
+                  <span className="text-blue-600 font-bold text-sm sm:text-base">✓</span>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-slate-800 mb-1 text-sm sm:text-base sm:mb-2">Save 10+ Hours Weekly</h3>
+                  <p className="text-slate-600 text-xs sm:text-sm">Automate inventory counting and reporting tasks</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3 group hover:transform hover:-translate-x-1 transition-transform duration-300 sm:gap-4 sm:hover:-translate-x-2">
+                <div className="w-6 h-6 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-1 group-hover:scale-110 transition-transform duration-300 sm:w-8 sm:h-8">
+                  <span className="text-blue-600 font-bold text-sm sm:text-base">✓</span>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-slate-800 mb-1 text-sm sm:text-base sm:mb-2">Reduce Stock Errors</h3>
+                  <p className="text-slate-600 text-xs sm:text-sm">Eliminate manual counting mistakes and discrepancies</p>
+                </div>
+              </div>
+            </div>
+            <div className="space-y-4 sm:space-y-6">
+              <div className="flex items-start gap-3 group hover:transform hover:-translate-x-1 transition-transform duration-300 sm:gap-4 sm:hover:-translate-x-2">
+                <div className="w-6 h-6 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-1 group-hover:scale-110 transition-transform duration-300 sm:w-8 sm:h-8">
+                  <span className="text-blue-600 font-bold text-sm sm:text-base">✓</span>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-slate-800 mb-1 text-sm sm:text-base sm:mb-2">Grow Sales 25%</h3>
+                  <p className="text-slate-600 text-xs sm:text-sm">Make data-driven decisions to boost your revenue</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3 group hover:transform hover:-translate-x-1 transition-transform duration-300 sm:gap-4 sm:hover:-translate-x-2">
+                <div className="w-6 h-6 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-1 group-hover:scale-110 transition-transform duration-300 sm:w-8 sm:h-8">
+                  <span className="text-blue-600 font-bold text-sm sm:text-base">✓</span>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-slate-800 mb-1 text-sm sm:text-base sm:mb-2">Happy Customers</h3>
+                  <p className="text-slate-600 text-xs sm:text-sm">Never disappoint customers with out-of-stock items</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        
-        <div className="relative max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-purple-500">
-              Stunning Visualizations
-            </h2>
-            <p className="mt-4 text-xl text-gray-300 max-w-2xl mx-auto">
-              Beautiful dashboards that make data easy to understand
-            </p>
+      </section>
+
+      {/* Final CTA */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600 to-blue-700 sm:py-20">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-2xl font-bold text-white mb-4 animate-fade-in-up sm:text-3xl md:text-4xl sm:mb-6">
+            Ready to Transform Your Shop?
+          </h2>
+          <p className="text-lg text-blue-100 max-w-2xl mx-auto mb-6 leading-relaxed animate-fade-in-up animation-delay-300 sm:text-xl sm:mb-10">
+            "The best time to organize your business was yesterday. The second best time is now."
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-3 animate-fade-in-up animation-delay-500 sm:gap-4">
+            <button
+              onClick={handleSignup}
+              className="px-6 py-3 bg-white text-blue-600 rounded-xl font-semibold hover:bg-slate-100 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 transform hover:-translate-y-1 active:scale-95 sm:px-8 sm:py-4"
+            >
+              Start Your Free Trial
+            </button>
+            <button className="px-6 py-3 bg-transparent border-2 border-white text-white rounded-xl font-semibold hover:bg-white/10 transition-all duration-300 transform hover:-translate-y-1 active:scale-95 sm:px-8 sm:py-4">
+              Book a Demo
+            </button>
+          </div>
+          <p className="text-blue-200 mt-4 text-xs animate-fade-in-up animation-delay-700 sm:mt-6 sm:text-sm">
+            No credit card required • Free 14-day trial • Setup in minutes
+          </p>
+        </div>
+      </section>
+
+      {/* Enhanced Footer */}
+      <footer className="bg-gradient-to-br from-slate-800 to-slate-900 py-12 px-4 sm:px-6 lg:px-8 border-t border-slate-700 sm:py-16">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col items-center gap-6 text-center lg:flex-row lg:justify-between lg:items-center lg:gap-8 lg:text-left">
+            {/* Brand */}
+            <div className="flex items-center gap-3 group sm:gap-4">
+              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform duration-300 sm:w-12 sm:h-12">
+                <span className="text-white font-bold text-sm sm:text-lg">SM</span>
+              </div>
+              <div>
+                <span className="text-xl font-bold text-white block group-hover:text-blue-200 transition-colors duration-300 sm:text-2xl">ShopManager</span>
+                <p className="text-slate-400 text-xs mt-0.5 sm:text-sm sm:mt-1">Retail management made simple</p>
+              </div>
+            </div>
+
+            {/* Links */}
+            <div className="flex gap-4 text-slate-400 sm:gap-6">
+              {['Privacy', 'Terms', 'Support'].map((link) => (
+                <a 
+                  key={link}
+                  href="#" 
+                  className="hover:text-white transition-all duration-300 transform hover:-translate-y-0.5 text-sm sm:text-base"
+                >
+                  {link}
+                </a>
+              ))}
+            </div>
+
+            {/* Copyright */}
+            <div className="text-slate-400 text-xs sm:text-sm">
+              <p className="hover:text-slate-300 transition-colors duration-300">
+                © 2025 ShopManager. All rights reserved.
+              </p>
+              <p className="text-slate-500 text-xs mt-1">
+                Built with ❤️ for shop owners
+              </p>
+            </div>
           </div>
           
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Card 1 */}
-            <div className="group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 h-96">
-              <img
-                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                alt="Dashboard"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/30 to-transparent flex items-end p-6">
-                <div>
-                  <h3 className="text-2xl font-bold text-white">Interactive Dashboards</h3>
-                  <p className="mt-2 text-gray-300 group-hover:text-white transition-colors duration-300">
-                    Real-time data visualization
-                  </p>
-                </div>
-              </div>
-            </div>
-            
-            {/* Card 2 */}
-            <div className="group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 h-96">
-              <img
-                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                alt="Analytics"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/30 to-transparent flex items-end p-6">
-                <div>
-                  <h3 className="text-2xl font-bold text-white">Advanced Analytics</h3>
-                  <p className="mt-2 text-gray-300 group-hover:text-white transition-colors duration-300">
-                    Deep insights into your business
-                  </p>
-                </div>
-              </div>
-            </div>
-            
-            {/* Card 3 */}
-            <div className="group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 h-96">
-              <img
-                src="https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                alt="Reports"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/30 to-transparent flex items-end p-6">
-                <div>
-                  <h3 className="text-2xl font-bold text-white">Custom Reports</h3>
-                  <p className="mt-2 text-gray-300 group-hover:text-white transition-colors duration-300">
-                    Tailored to your business needs
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-purple-900 to-pink-900 overflow-hidden">
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-32 -right-32 w-96 h-96 bg-white rounded-full mix-blend-overlay filter blur-3xl opacity-10 animate-blob"></div>
-          <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-purple-400 rounded-full mix-blend-overlay filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
-        </div>
-        
-        <div className="relative max-w-7xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Ready to transform your inventory management?
-          </h2>
-          <p className="text-xl text-purple-100 max-w-2xl mx-auto mb-10">
-            Join thousands of businesses that trust Vyapar for their inventory needs.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <button 
-              onClick={handleSignup}
-              className="px-8 py-4 bg-white text-purple-900 rounded-full font-bold hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
-            >
-              Start Free Trial
-            </button>
-            <button className="px-8 py-4 bg-transparent border-2 border-white text-white rounded-full font-bold hover:bg-white/10 transition-all duration-300 shadow-lg hover:shadow-xl">
-              Schedule a Demo
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-gray-900 py-12 px-4 sm:px-6 lg:px-8 border-t border-gray-800">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="flex gap-2 justify-center items-center mb-6 md:mb-0">
-              <img 
-                className="rounded-full animate-spin-slow" 
-                src="logo.gif" 
-                width={30} 
-                height={30} 
-                alt="logo" 
-              />
-              <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 text-2xl tracking-widest">
-                ShopManager
-              </span>
-            </div>
-            <div className="flex gap-6">
-              <a href="#" className="text-gray-400 hover:text-purple-400 transition-colors duration-300">
-                <span className="sr-only">Facebook</span>
-                <i className="fab fa-facebook-f text-xl"></i>
-              </a>
-              <a href="#" className="text-gray-400 hover:text-pink-400 transition-colors duration-300">
-                <span className="sr-only">Twitter</span>
-                <i className="fab fa-twitter text-xl"></i>
-              </a>
-              <a href="#" className="text-gray-400 hover:text-purple-400 transition-colors duration-300">
-                <span className="sr-only">Instagram</span>
-                <i className="fab fa-instagram text-xl"></i>
-              </a>
-              <a href="#" className="text-gray-400 hover:text-pink-400 transition-colors duration-300">
-                <span className="sr-only">LinkedIn</span>
-                <i className="fab fa-linkedin-in text-xl"></i>
-              </a>
-            </div>
-          </div>
-          <div className="mt-8 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between">
-            <p className="text-gray-400 text-sm mb-4 md:mb-0">
-              © 2025 ShaopManager. All rights reserved.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-8">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300 text-sm">Privacy Policy</a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300 text-sm">Terms of Service</a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300 text-sm">Contact Us</a>
+          {/* Bottom decorative line */}
+          <div className="mt-6 pt-6 border-t border-slate-700 sm:mt-8 sm:pt-8">
+            <div className="flex justify-center">
+              <div className="w-16 h-0.5 bg-gradient-to-r from-blue-500 to-transparent rounded-full sm:w-24 sm:h-1"></div>
             </div>
           </div>
         </div>
       </footer>
+
     </div>
   );
 };

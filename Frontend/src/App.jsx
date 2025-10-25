@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Signup from "./component/signup";
 import Login from "./component/login";
-import About from "./component/About";
 import RefreshHandler from "./component/RefreshHandler";
 import Dashboard from "./component/dashboard";
 import BillGenerator from "./component/billgenerator";
@@ -17,7 +16,6 @@ import CustomerAccount from "./component/CustomerAccount";
 import CustomerHistory from "./component/CustomerHistory";
 import SupplierData from "./component/SupplierData";
 import Navbar from "./component/navbar";
-import Footer from "./component/footer"; // Import the Footer component
 import Notes from "./component/Notes";
 
 function App() {
@@ -48,7 +46,6 @@ function App() {
 
           {/* Protected Routes (accessible only when authenticated) */}
           <Route path="/home" element={<PrivateRoute element={<Dashboard />} />} />
-          <Route path="/about" element={<PrivateRoute element={<About />} />} />
           <Route path="/profile" element={<PrivateRoute element={<Profile />} />} />
           <Route path="/dashboard" element={<PrivateRoute element={<Dashboard />} />} />
           <Route path="/billgenerator" element={<PrivateRoute element={<BillGenerator />} />} />
