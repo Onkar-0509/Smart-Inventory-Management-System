@@ -36,6 +36,6 @@
 
 ## 🔗 Live Preview
 
-- 🚀 [ShopManager Live Demo](https://smart-inventory-management-system-frontend.vercel.app/) 
+- 🚀 [ShopManager Live Demo](http://ec2-51-21-193-255.eu-north-1.compute.amazonaws.com/) 
 
 ---
