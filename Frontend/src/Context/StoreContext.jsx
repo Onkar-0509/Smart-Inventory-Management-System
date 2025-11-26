@@ -90,7 +90,7 @@ const StoreContextProvider = (props) => {
       const response=await axios.get(backend_url+"/api/bill/dashData",{headers:{Authorization: token }});
       setDashData(response.data)
     } catch (err) {
-       console.error('Error in totalsales:', err); 
+       console.error('Error in totalsales:', err);
     }
   }
 
