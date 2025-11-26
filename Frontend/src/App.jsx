@@ -17,6 +17,7 @@ import CustomerHistory from "./component/CustomerHistory";
 import SupplierData from "./component/SupplierData";
 import Navbar from "./component/navbar";
 import Notes from "./component/Notes";
+import Chatbot from "./component/chatbot";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -57,6 +58,7 @@ function App() {
           <Route path="/customer/:customerId" element={<PrivateRoute element={<CustomerHistory />} />} />
           <Route path="/supplierData" element={<PrivateRoute element={<SupplierData />} />} />
           <Route path="/notes" element={<PrivateRoute element={<Notes/>} />} />
+           <Route path="/chatbot" element={<PrivateRoute element={<Chatbot/>} />} />
         </Routes>
       </main>
     </div>

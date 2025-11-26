@@ -4,6 +4,7 @@ import Footer from "./footer";
 import { ToastContainer } from 'react-toastify';
 import { useContext, useEffect } from 'react';
 import { StoreContext } from '../Context/StoreContext';
+import { useNavigate } from 'react-router-dom';
 import {
   FiTrendingUp,
   FiDollarSign,
@@ -19,17 +20,21 @@ import {
   FiAlertTriangle,
   FiStar,
   FiCalendar,
-  FiRefreshCw
+  FiRefreshCw,
+  FiMessageSquare
 } from 'react-icons/fi';
 
 const Dashboard = () => {
   const { dashboardData, dashData } = useContext(StoreContext);
-
-
+  const navigate = useNavigate();
 
   useEffect(() => {
     dashboardData();
   }, []);
+
+  const handleChatbotClick = () => {
+    navigate('/chatbot');
+  };
 
   const stats = [
     {
@@ -179,19 +184,44 @@ const Dashboard = () => {
               Here's your business overview for today
             </p>
           </div>
-          <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-sm p-4 flex items-center justify-center min-w-[200px]">
-            <div className="text-center">
-              <div className="flex items-center justify-center gap-2 mb-1">
-                <FiCalendar className="text-slate-500" />
-                <p className="text-sm text-slate-500">Today is</p>
+          
+          {/* Right Side - Date and Chatbot */}
+          <div className="flex flex-col sm:flex-row gap-4 w-full lg:w-auto">
+            {/* Date Card */}
+            <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-sm p-4 flex items-center justify-center min-w-[200px]">
+              <div className="text-center">
+                <div className="flex items-center justify-center gap-2 mb-1">
+                  <FiCalendar className="text-slate-500" />
+                  <p className="text-sm text-slate-500">Today is</p>
+                </div>
+                <p className="text-base font-semibold text-slate-800">
+                  {new Date().toLocaleDateString('en-US', {
+                    weekday: 'short',
+                    month: 'short',
+                    day: 'numeric'
+                  })}
+                </p>
               </div>
-              <p className="text-base font-semibold text-slate-800">
-                {new Date().toLocaleDateString('en-US', {
-                  weekday: 'short',
-                  month: 'short',
-                  day: 'numeric'
-                })}
-              </p>
+            </div>
+
+            {/* AI Chatbot Card */}
+            <div 
+              className="bg-gradient-to-br from-purple-50 to-indigo-100 backdrop-blur-sm rounded-2xl shadow-sm p-4 flex items-center justify-center min-w-[200px] cursor-pointer hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 border border-purple-200/50"
+              onClick={handleChatbotClick}
+            >
+              <div className="text-center">
+                <div className="flex items-center justify-center gap-2 mb-2">
+                  <div className="p-2 bg-purple-100 rounded-lg">
+                    <FiMessageSquare className="text-purple-600 w-5 h-5" />
+                  </div>
+                </div>
+                <p className="text-sm font-medium text-purple-700 mb-1">
+                  AI Chatbot
+                </p>
+                <p className="text-xs text-purple-600">
+                  Get instant help
+                </p>
+              </div>
             </div>
           </div>
         </div>
