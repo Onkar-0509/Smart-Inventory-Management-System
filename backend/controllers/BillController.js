@@ -6,6 +6,9 @@ import Customer from "../models/Customer.js";
 export const CreateBill = async (req, res) => {
     const owner = req.user.email; // Get the authenticated user's email
 
+    console.log("woner",owner)
+
+    
     try {
         const { customerName, phoneNumber, deposit = 0, customerId, items } = req.body;
 
